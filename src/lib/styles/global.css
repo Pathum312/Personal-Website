@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
+
+:root {
+	/* Default font family for all the components */
+	--font-default: 'Jockey One', cursive;
+
+	/* Font sizes for common use */
+	--fs-default--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+	--fs-default--1: clamp(0.9375rem, 0.9158rem + 0.1086vw, 1rem);
+	--fs-default-0: clamp(1.125rem, 1.0816rem + 0.2172vw, 1.25rem);
+	--fs-default-1: clamp(1.35rem, 1.2762rem + 0.3692vw, 1.5625rem);
+	--fs-default-2: clamp(1.62rem, 1.5043rem + 0.5787vw, 1.9531rem);
+	--fs-default-3: clamp(1.944rem, 1.7712rem + 0.8641vw, 2.4414rem);
+	--fs-default-4: clamp(2.3328rem, 2.083rem + 1.249vw, 3.0518rem);
+	--fs-default-5: clamp(2.7994rem, 2.4466rem + 1.7639vw, 3.8147rem);
+
+	/* Font sizes for the year */
+	--fs-year--2: clamp(1.3889rem, 1.3155rem + 0.3668vw, 1.6rem);
+	--fs-year--1: clamp(1.6667rem, 1.5509rem + 0.5791vw, 2rem);
+	--fs-year-0: clamp(2rem, 1.8263rem + 0.8686vw, 2.5rem);
+	--fs-year-1: clamp(2.4rem, 2.1481rem + 1.2595vw, 3.125rem);
+	--fs-year-2: clamp(2.88rem, 2.5234rem + 1.7828vw, 3.9063rem);
+	--fs-year-3: clamp(3.456rem, 2.9603rem + 2.4787vw, 4.8828rem);
+	--fs-year-4: clamp(4.1472rem, 3.4675rem + 3.3986vw, 6.1035rem);
+	--fs-year-5: clamp(4.9766rem, 4.0549rem + 4.6085vw, 7.6294rem);
+
+	/* Font sizes for the month */
+	--fs-month--2: clamp(0.8681rem, 0.7805rem + 0.4377vw, 1.12rem);
+	--fs-month--1: clamp(1.0417rem, 0.9172rem + 0.6225vw, 1.4rem);
+	--fs-month-0: clamp(1.25rem, 1.0763rem + 0.8686vw, 1.75rem);
+	--fs-month-1: clamp(1.5rem, 1.2611rem + 1.1944vw, 2.1875rem);
+	--fs-month-2: clamp(1.8rem, 1.4754rem + 1.6232vw, 2.7344rem);
+	--fs-month-3: clamp(2.16rem, 1.7229rem + 2.1854vw, 3.418rem);
+	--fs-month-4: clamp(2.592rem, 2.0081rem + 2.9194vw, 4.2725rem);
+	--fs-month-5: clamp(3.1104rem, 2.3355rem + 3.8744vw, 5.3406rem);
+
+	/* Font sizes for the quote */
+	--fs-quote--2: clamp(0.6944rem, 0.6856rem + 0.0444vw, 0.72rem);
+	--fs-quote--1: clamp(0.8333rem, 0.8102rem + 0.1158vw, 0.9rem);
+	--fs-quote-0: clamp(1rem, 0.9566rem + 0.2172vw, 1.125rem);
+	--fs-quote-1: clamp(1.2rem, 1.1283rem + 0.3583vw, 1.4063rem);
+	--fs-quote-2: clamp(1.44rem, 1.3296rem + 0.5521vw, 1.7578rem);
+	--fs-quote-3: clamp(1.728rem, 1.565rem + 0.8152vw, 2.1973rem);
+	--fs-quote-4: clamp(2.0736rem, 1.8398rem + 1.1691vw, 2.7466rem);
+	--fs-quote-5: clamp(2.4883rem, 2.16rem + 1.6415vw, 3.4332rem);
+
+	/* Color Theme */
+	--clr-primary: #0e0004;
+	--clr-secondary: #ffe6ed;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	color: var(--clr-secondary);
+	font-family: var(--font-default);
+	background-color: var(--clr-primary);
+}
