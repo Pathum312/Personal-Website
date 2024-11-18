@@ -47,6 +47,7 @@
 	/* Color Theme */
 	--clr-primary: #0e0004;
 	--clr-secondary: #ffe6ed;
+	--clr-hover: #f90047;
 }
 
 * {

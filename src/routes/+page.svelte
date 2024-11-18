@@ -3,7 +3,6 @@
 <p class="month">March</p>
 <p class="text">Home Page for my personal blog website.</p>
 <p class="quote">~ Pathum Senanayake</p>
-<a href="/about">/about</a>
 
 <style>
 	.year {
