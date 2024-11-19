@@ -1,0 +1,27 @@
+[
+    {
+        "year": "2024",
+        "months": [
+            {
+                "name": "October",
+                "articles": [
+                    {
+                        "name": "The Throne of Broken Gods",
+                        "url": "/the-throne-of-broken-gods",
+                        "date": "17th"
+                    },
+                    {
+                        "name": "The Aetherstones",
+                        "url": "/aetherstones",
+                        "date": "16th"
+                    },
+                    {
+                        "name": "Death's Blade",
+                        "url": "/deaths-blade",
+                        "date": "15th"
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -12,7 +12,8 @@
 	}
 
 	.content {
-        width: 100%;
+		width: 100%;
+		padding: 1rem;
 		max-width: 70ch;
 	}
 </style>

@@ -1,4 +1,14 @@
-import { Header, Footer, Content, Blog } from './components';
+import {
+	Blog,
+	Date,
+	Title,
+	Quote,
+	Header,
+	Footer,
+	Content,
+	Paragraph,
+	Highlight,
+} from './components';
 
 type Article = {
 	name: string;
@@ -16,4 +26,17 @@ type Year = {
 	months: Month[];
 };
 
-export { Header, Footer, Content, Blog, type Year, type Month, type Article };
+export {
+	Blog,
+	Date,
+	Title,
+	Quote,
+	Header,
+	Footer,
+	Content,
+	Paragraph,
+	Highlight,
+	type Year,
+	type Month,
+	type Article,
+};

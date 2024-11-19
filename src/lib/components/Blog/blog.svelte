@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { type Year } from '$lib';
 	import { goto } from '$app/navigation';
+	import DB from '$lib/source/DB.json';
 
 	const handleClick = (url: string) => {
 		goto(url);
@@ -8,33 +9,7 @@
 
 	type Blog = Year[];
 
-	const blogs: Blog = [
-		{
-			year: '2024',
-			months: [
-				{
-					name: 'October',
-					articles: [
-						{
-							name: 'The Throne of Broken Gods',
-							url: '/the-throne-of-broken-gods',
-							date: '17th',
-						},
-						{
-							name: 'The Aetherstones',
-							url: '/aetherstones',
-							date: '16th',
-						},
-						{
-							name: "Death's Blade",
-							url: '/deaths-blade',
-							date: '15th',
-						},
-					],
-				},
-			],
-		},
-	];
+	const blogs: Blog = DB;
 </script>
 
 {#each blogs as blog}
