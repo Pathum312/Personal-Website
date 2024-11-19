@@ -3,13 +3,14 @@
 </script>
 
 <header class="{alignment} {fontSize}">
-	<div><a href="/">Home</a><a href="/about">About</a></div>
+	<a href="/">Home</a>
+	<a href="/about">About</a>
 </header>
 
 <style>
 	header {
 		display: flex;
-		padding: 1rem 0;
+		padding: 2rem 0;
 	}
 
 	a {
