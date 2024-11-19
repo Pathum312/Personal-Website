@@ -1,8 +1,10 @@
 <script lang="ts">
 	import '$lib/styles/global.css';
-	import { Header, Footer } from '$lib';
+	import { Header, Footer, Content } from '$lib';
 </script>
 
 <Header />
-<slot />
+<Content>
+	<slot />
+</Content>
 <Footer />
