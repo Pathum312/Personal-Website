@@ -2,6 +2,7 @@
 	import { Title, Date, Paragraph, Highlight, Quote } from '$lib';
 </script>
 
+<title>Pinkz | The Throne of Broken Gods</title>
 <Title>The Throne of Broken Gods</Title>
 <Date>Date: 17/10/2024</Date>
 <Paragraph>

@@ -1,9 +1,9 @@
-<b>
+<span>
 	<slot />
-</b>
+</span>
 
 <style>
-	b {
+	span {
 		color: var(--clr-hover);
 	}
 </style>
