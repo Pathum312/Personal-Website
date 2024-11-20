@@ -20,3 +20,10 @@ export { default as Highlight } from './Blog/Highlight/highlight.svelte';
 
 // Quote for the blog
 export { default as Quote } from './Blog/Quote/quote.svelte';
+
+// Image for the blog
+export { default as Image } from './Blog/Image/image.svelte';
+
+// Unordered list for the blog
+export { default as List } from './Blog/List/list.svelte';
+export { default as ListItem } from './Blog/List/ListItem/listItem.svelte';

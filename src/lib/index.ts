@@ -1,11 +1,14 @@
 import {
+	List,
 	Blog,
 	Date,
 	Title,
 	Quote,
+	Image,
 	Header,
 	Footer,
 	Content,
+	ListItem,
 	Paragraph,
 	Highlight,
 } from './components';
@@ -27,13 +30,16 @@ type Year = {
 };
 
 export {
+	List,
 	Blog,
 	Date,
 	Title,
 	Quote,
+	Image,
 	Header,
 	Footer,
 	Content,
+	ListItem,
 	Paragraph,
 	Highlight,
 	type Year,
