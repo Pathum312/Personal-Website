@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Paragraph, Highlight, Title, Image, List, ListItem } from '$lib';
+	import { Paragraph, Highlight, Title, Image, List, ListItem, Link } from '$lib';
 	import ProfileIMG from '$lib/assets/img/github_profile.jpg';
 </script>
 
@@ -36,15 +36,84 @@
 <Title>
 	<Highlight>Projects</Highlight>
 </Title>
-<Paragraph>Projects</Paragraph>
+<Paragraph>Random ProtonMail Generator</Paragraph>
+<List>
+	<ListItem>Create a random protonmail address.</ListItem>
+	<ListItem>
+		Release: <Link
+			href="https://github.com/Pathum312/random-protonmail-generator/releases/tag/v1.0.0"
+			content="v0.1.0"
+		/>
+	</ListItem>
+</List>
+<Paragraph>Flight Overweight Fee Calculator</Paragraph>
+<List>
+	<ListItem>Calculate the last minute additional baggage fees.</ListItem>
+	<ListItem>
+		Hosted URL: <Link
+			href="https://pinkz.blog/calculator/"
+			content="https://pinkz.blog/calculator/"
+		/>
+	</ListItem>
+	<ListItem>
+		Release: <Link
+			href="https://github.com/Pathum312/Flight-Overweight-Fee-Calculator/releases/tag/0.9.1"
+			content="v0.9.1"
+		/>
+	</ListItem>
+</List>
+<Paragraph>Dog Ded Database (DBDB) - Using AVL Tree</Paragraph>
+<List>
+	<ListItem>Created my own interpretation of DBDB.</ListItem>
+	<ListItem>
+		Original Resource: <Link
+			href="https://aosabook.org/en/500L/dbdb-dog-bed-database.html"
+			content="DBDB - Dog Bed Database by Taavi Burns"
+		/>
+	</ListItem>
+</List>
 <Title>
 	<Highlight>Tech Stack</Highlight>
 </Title>
 <Paragraph>Languages</Paragraph>
 <List>
-	<ListItem>Javascript</ListItem>
 	<ListItem>Typescript</ListItem>
-	<ListItem>Node js</ListItem>
+	<ListItem>Javascript</ListItem>
+	<ListItem>Python</ListItem>
+	<ListItem>Java</ListItem>
+	<ListItem>R</ListItem>
+</List>
+<Paragraph>Frameworks</Paragraph>
+<List>
+	<ListItem>Playwright</ListItem>
+	<ListItem>Express.js</ListItem>
+	<ListItem>Selenium</ListItem>
+	<ListItem>Swagger</ListItem>
+	<ListItem>Angular</ListItem>
+	<ListItem>Node.js</ListItem>
+	<ListItem>Next.js</ListItem>
+	<ListItem>Svelte</ListItem>
+	<ListItem>React</ListItem>
+</List>
+<Paragraph>Database</Paragraph>
+<List>
+	<ListItem>MongoDB</ListItem>
+	<ListItem>Firebase</ListItem>
+	<ListItem>MySQL</ListItem>
+</List>
+<Paragraph>ORMs</Paragraph>
+<List>
+	<ListItem>Sequelize</ListItem>
+	<ListItem>Prisma</ListItem>
+</List>
+<Paragraph>Web Technologies</Paragraph>
+<List>
+	<ListItem>HTML</ListItem>
+	<ListItem>CSS</ListItem>
+</List>
+<Paragraph>Version Control</Paragraph>
+<List>
+	<ListItem>Git</ListItem>
 </List>
 <Title>
 	<Highlight>Experience</Highlight>
@@ -52,6 +121,25 @@
 <Paragraph>
 	Neo Minds Holdings (Pvt) Ltd<br />Software Engineer Intern<br />Jul 2021 - Jul 2022
 </Paragraph>
+<List>
+	<ListItem>Developed and deployed RESTful APIs using modern backend technologies.</ListItem>
+	<ListItem>
+		Managed server deployments on AWS and GCP, ensuring reliable uptime and performance.
+	</ListItem>
+	<ListItem>
+		Handled a TCP server responsible for receiving and decrypting signals from smartwatches.
+	</ListItem>
+	<ListItem>
+		Contributed to 5 projects, including one major project, delivering backend solutions.
+	</ListItem>
+	<ListItem>
+		Led client interactions during a joint integration phase with another company, ensuring smooth
+		collaboration.
+	</ListItem>
+	<ListItem>
+		Conducted functional testing for 2 projects, enhancing quality assurance processes.
+	</ListItem>
+</List>
 <Title>
 	<Highlight>Education</Highlight>
 </Title>
@@ -60,5 +148,5 @@
 </Paragraph>
 <List>
 	<ListItem>Graduated with Upper Second Class Honours</ListItem>
-	<ListItem>Final Project: Hyper-automation of web testing</ListItem>
+	<ListItem>Final Project: Hyper-automation for web testing</ListItem>
 </List>

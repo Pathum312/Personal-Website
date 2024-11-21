@@ -27,3 +27,6 @@ export { default as Image } from './Blog/Image/image.svelte';
 // Unordered list for the blog
 export { default as List } from './Blog/List/list.svelte';
 export { default as ListItem } from './Blog/List/ListItem/listItem.svelte';
+
+// Link for the blog
+export { default as Link } from './Blog/Link/link.svelte';

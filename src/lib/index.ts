@@ -1,5 +1,6 @@
 import {
 	List,
+	Link,
 	Blog,
 	Date,
 	Title,
@@ -31,6 +32,7 @@ type Year = {
 
 export {
 	List,
+	Link,
 	Blog,
 	Date,
 	Title,
