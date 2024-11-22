@@ -1,15 +1,14 @@
 <script lang="ts">
-	import { Paragraph, Highlight, Title, Image, List, ListItem, Link } from '$lib';
-	import ProfileIMG from '$lib/assets/img/github_profile.jpg';
+	import { Paragraph, Highlight, Title, Image, List, ListItem, Link, ProfileIMG } from '$lib';
 </script>
 
 <title>Pinkz | About</title>
 <Image
-	width="460"
-	height="460"
+	width="1491"
+	height="1491"
 	type="profile"
 	src={ProfileIMG}
-	alt="Link from Tears of the Kingdom"
+	alt="A image of the websites author."
 />
 <Title>
 	<Highlight>Hi there!👋</Highlight>

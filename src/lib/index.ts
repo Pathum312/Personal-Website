@@ -1,3 +1,4 @@
+// UI Components
 import {
 	List,
 	Link,
@@ -13,6 +14,9 @@ import {
 	Paragraph,
 	Highlight,
 } from './components';
+
+// Assets
+import { ProfileIMG } from './assets';
 
 type Article = {
 	name: string;
@@ -47,4 +51,5 @@ export {
 	type Year,
 	type Month,
 	type Article,
+	ProfileIMG,
 };
