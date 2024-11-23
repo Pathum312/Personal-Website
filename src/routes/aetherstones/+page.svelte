@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Title, Date, Paragraph, Highlight, Quote } from '$lib';
+	import { Title, Date, Paragraph, Highlight, Blog } from '$lib';
 </script>
 
 <title>Pinkz | Aetherstones</title>
@@ -225,3 +225,7 @@
 	stones are discovered, the line between mortal and god will grow ever thinner—until it snaps
 	entirely.
 </Paragraph>
+<Title alignment="center">
+	<Highlight>Related Articles</Highlight>
+</Title>
+<Blog tag="AshesOfEternity" />

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Title, Date, Paragraph, Highlight, Quote } from '$lib';
+	import { Title, Date, Paragraph, Highlight, Quote, Blog } from '$lib';
 </script>
 
 <title>Pinkz | The Throne of Broken Gods</title>
@@ -213,3 +213,7 @@
 <Paragraph>
 	For Valkor, the Architect of Ruin, had shaped the world—and soon, he would shape it once more.
 </Paragraph>
+<Title alignment="center">
+	<Highlight>Related Articles</Highlight>
+</Title>
+<Blog tag="AshesOfEternity" />

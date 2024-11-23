@@ -8,16 +8,19 @@
                     {
                         "name": "The Throne of Broken Gods",
                         "url": "/the-throne-of-broken-gods",
+                        "tag": "AshesOfEternity",
                         "date": "17th"
                     },
                     {
                         "name": "Aetherstones",
                         "url": "/aetherstones",
+                        "tag": "AshesOfEternity",
                         "date": "16th"
                     },
                     {
                         "name": "Death's Blade",
                         "url": "/deaths-blade",
+                        "tag": "AshesOfEternity",
                         "date": "15th"
                     }
                 ]

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Title, Date, Paragraph, Highlight, Quote } from '$lib';
+	import { Title, Date, Paragraph, Highlight, Quote, Blog } from '$lib';
 </script>
 
 <title>Pinkz | Death's Blade</title>
@@ -68,3 +68,7 @@
 <Paragraph>
 	And so, the blacksmith’s tale ended, his legacy living on in the blade wielded by Death himself.
 </Paragraph>
+<Title alignment="center">
+	<Highlight>Related Articles</Highlight>
+</Title>
+<Blog tag="AshesOfEternity" />

@@ -2,12 +2,13 @@
 	type Props = {
 		href: string;
 		content: string;
+		target?: string;
 	};
 
-	let { href, content }: Props = $props();
+	let { href, content, target = '_blank' }: Props = $props();
 </script>
 
-<a {href} target="_blank">
+<a {href} {target}>
 	{content}
 </a>
 

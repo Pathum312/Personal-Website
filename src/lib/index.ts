@@ -21,6 +21,7 @@ import { ProfileIMG } from './assets';
 type Article = {
 	name: string;
 	url: string;
+	tag: string;
 	date: string;
 };
 

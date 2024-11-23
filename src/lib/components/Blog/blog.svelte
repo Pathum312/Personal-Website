@@ -1,31 +1,68 @@
 <script lang="ts">
-	import { type Year } from '$lib';
-	import { goto } from '$app/navigation';
 	import DB from '$lib/source/DB.json';
+	import { goto } from '$app/navigation';
+	import { type Year, type Month, type Article } from '$lib';
+	import Link from './Link/link.svelte';
 
-	const handleClick = (url: string) => {
-		goto(url);
+	type Props = {
+		tag?: string;
 	};
 
 	type Blog = Year[];
 
-	const blogs: Blog = DB;
+	let { tag }: Props = $props();
+
+	/**
+	 * Navigates to the article
+	 *
+	 * @param url - The url of the article
+	 */
+	const handleClick = (url: string) => {
+		goto(url);
+	};
+
+	/**
+	 * Filters the articles by tag
+	 *
+	 * @returns The filtered articles
+	 */
+	const filterArticlesByTag = (): Blog => {
+		return DB.filter((blog: Year) =>
+			blog.months.some((month: Month) =>
+				month.articles.some((article: Article) => article.tag === tag),
+			),
+		);
+	};
+
+	const blogs: Blog = tag ? filterArticlesByTag() : DB;
 </script>
 
-{#each blogs as blog}
-	<p class="year">{blog.year}</p>
-	{#each blog.months as month}
-		<p class="month">{month.name}</p>
-		{#each month.articles as article}
-			<!-- svelte-ignore a11y_click_events_have_key_events -->
-			<!-- svelte-ignore a11y_no_static_element_interactions -->
-			<div class="article" onclick={() => handleClick(article.url)}>
-				<p class="text">{article.name}</p>
-				<p class="text">{article.date}</p>
-			</div>
+{#if blogs.length === 0}
+	<p class="text center">No related articles found! 😢</p>
+	<p class="text center">
+		<Link href="/" content="Return Home" target="_self" />
+	</p>
+{:else}
+	{#each blogs as blog}
+		<p class="year">{blog.year}</p>
+		{#each blog.months as month}
+			<p class="month">{month.name}</p>
+			{#each month.articles as article}
+				<!-- svelte-ignore a11y_click_events_have_key_events -->
+				<!-- svelte-ignore a11y_no_static_element_interactions -->
+				<div class="article" onclick={() => handleClick(article.url)}>
+					<p class="text">{article.name}</p>
+					<p class="text">{article.date}</p>
+				</div>
+			{/each}
 		{/each}
 	{/each}
-{/each}
+	{#if tag}
+		<p class="text center">
+			<Link href="/" content="Return Home" target="_self" />
+		</p>
+	{/if}
+{/if}
 
 <style>
 	.year {
@@ -39,7 +76,12 @@
 	}
 
 	.text {
+		display: flex;
 		font-size: var(--fs-default-0);
+	}
+
+	.center {
+		justify-content: center;
 	}
 
 	.article {
