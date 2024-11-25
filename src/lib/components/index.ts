@@ -30,3 +30,9 @@ export { default as ListItem } from './Blog/List/ListItem/listItem.svelte';
 
 // Link for the blog
 export { default as Link } from './Blog/Link/link.svelte';
+
+// Code snippet for the blog
+export { default as Code } from './Blog/Code/code.svelte';
+
+// Line of code in the code snippet
+export { default as Line } from './Blog/Code/Line/line.svelte';

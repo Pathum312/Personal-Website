@@ -1,5 +1,7 @@
 // UI Components
 import {
+	Line,
+	Code,
 	List,
 	Link,
 	Blog,
@@ -36,6 +38,8 @@ type Year = {
 };
 
 export {
+	Line,
+	Code,
 	List,
 	Link,
 	Blog,

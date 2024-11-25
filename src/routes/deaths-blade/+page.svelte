@@ -1,5 +1,17 @@
 <script lang="ts">
-	import { Title, Date, Paragraph, Highlight, Quote, Blog } from '$lib';
+	import { Title, Date, Paragraph, Highlight, Quote, Blog, Code, Line } from '$lib';
+
+	const codeSnippet = {
+		language: 'typescript',
+		code: [
+			'const name: string = "Pathum Senanayake";',
+			'const isVerified: boolean = True;',
+			'',
+			'const getName = (): string => {',
+			'&nbsp;&nbsp;&nbsp;&nbsp;return name;',
+			'};',
+		],
+	};
 </script>
 
 <title>Pinkz | Death's Blade</title>
@@ -72,3 +84,4 @@
 	<Highlight>Related Articles</Highlight>
 </Title>
 <Blog tag="AshesOfEternity" />
+<Code {codeSnippet} />
