@@ -11,6 +11,7 @@
 		Highlight,
 		ExampleTree,
 		ExampleSubtrees,
+		ExampleVisualize,
 	} from '$lib';
 
 	const NODE_CLASS_INIT_SNIPPET = {
@@ -56,6 +57,22 @@
 		],
 	};
 
+	const BST_CLASS_VISUALIZE_SNIPPET = {
+		language: 'python',
+		code: [
+			'def visualize(',
+			'&nbsp;&nbsp;&nbsp;&nbsp;self,',
+			'&nbsp;&nbsp;&nbsp;&nbsp;node: Node | None,',
+			'&nbsp;&nbsp;&nbsp;&nbsp;level: int = 0,',
+			'&nbsp;&nbsp;&nbsp;&nbsp;prefix: str = "\\nL - Left child node\\nR - Right child node\\n\\nRoot--- ",',
+			') -> None:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;if node:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(" " * (level * 4) + prefix + str(object=node.key))',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.visualize(node=node.left, level=level + 1, prefix="L--- ")',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.visualize(node=node.right, level=level + 1, prefix="R--- ")',
+		],
+	};
+
 	const BST_INIT_SNIPPET = {
 		language: 'python',
 		code: ['if __name__ == "__main__":', '&nbsp;&nbsp;&nbsp;&nbsp;tree: BST = BST(key=20)'],
@@ -72,6 +89,22 @@
 			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=15)',
 			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=25)',
 			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=35)',
+		],
+	};
+
+	const BST_VISUALIZE_SNIPPET = {
+		language: 'python',
+		code: [
+			'if __name__ == "__main__":',
+			'&nbsp;&nbsp;&nbsp;&nbsp;tree: BST = BST(key=20)',
+			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=10)',
+			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=30)',
+			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=9)',
+			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=15)',
+			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=25)',
+			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=35)',
+			'',
+			'&nbsp;&nbsp;&nbsp;&nbsp;tree.visualize(node=tree.root)',
 		],
 	};
 </script>
@@ -184,7 +217,7 @@
 		<Highlight>Key</Highlight> - The key value of the node to be inserted.
 	</ListItem>
 </List>
-<Paragraph>This function inserts a new node with the given key into a BST:</Paragraph>
+<Paragraph>How it works:</Paragraph>
 <List>
 	<ListItem>Start at the root of the tree.</ListItem>
 	<ListItem>
@@ -215,3 +248,49 @@
 	>, <Highlight>15</Highlight>, <Highlight>25</Highlight>, and <Highlight>35</Highlight> to our BST,
 	but visualizing it is challenging. Let’s create a function to print the BST for better clarity.
 </Paragraph>
+<Paragraph>
+	<Highlight>BST.py</Highlight>
+</Paragraph>
+<Code codeSnippet={BST_CLASS_VISUALIZE_SNIPPET} />
+<List>
+	<ListItem>
+		<Highlight>Node</Highlight> - The current node in the tree being visualized. If it's None, the function
+		stops processin.
+	</ListItem>
+	<ListItem>
+		<Highlight>Level</Highlight> - The depth level of the current node in the tree. It starts at 0 for
+		the root and increments for child nodes.
+	</ListItem>
+	<ListItem>
+		<Highlight>Prefix</Highlight> - A string to differentiate the root, left, and right nodes visually.
+	</ListItem>
+</List>
+<Paragraph>How it works:</Paragraph>
+<List>
+	<ListItem>
+		If the current node is not <Highlight>None</Highlight>, it prints the node's key, indented based
+		on its depth level.
+	</ListItem>
+	<ListItem>
+		The function recursively calls itself for the left and right child nodes of the current node.
+	</ListItem>
+	<ListItem>
+		The left child uses a prefix of <Highlight>"L--- "</Highlight> and increases the level by 1.
+	</ListItem>
+	<ListItem>
+		The right child uses a prefix of <Highlight>"R--- "</Highlight> and increases the level by 1.
+	</ListItem>
+</List>
+<Paragraph>
+	<Highlight>BST.py</Highlight>
+</Paragraph>
+<Code codeSnippet={BST_VISUALIZE_SNIPPET} />
+<Paragraph>
+	Let's use the visualize function to print it, as shown in <Highlight>Figure 3</Highlight>.
+</Paragraph>
+<Image
+	width="1288"
+	height="978"
+	src={ExampleVisualize}
+	alt="An example diagram showing a binary search tree."
+/>
