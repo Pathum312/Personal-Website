@@ -18,7 +18,7 @@ import {
 } from './components';
 
 // Assets
-import { ProfileIMG } from './assets';
+import { ProfileIMG, ExampleTree, ExampleSubtrees } from './assets';
 
 type Article = {
 	name: string;
@@ -57,4 +57,6 @@ export {
 	type Month,
 	type Article,
 	ProfileIMG,
+	ExampleTree,
+	ExampleSubtrees,
 };

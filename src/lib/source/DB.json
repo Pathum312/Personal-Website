@@ -3,6 +3,17 @@
         "year": "2024",
         "months": [
             {
+                "name": "November",
+                "articles": [
+                    {
+                        "name": "Binary Search Tree",
+                        "url": "/binary-search-tree",
+                        "tag": "DataStructures",
+                        "date": "27th"
+                    }
+                ]
+            },
+            {
                 "name": "October",
                 "articles": [
                     {
