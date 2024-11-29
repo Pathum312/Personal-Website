@@ -73,6 +73,20 @@
 		],
 	};
 
+	const BST_CLASS_SEARCH_SNIPPET = {
+		language: 'python',
+		code: [
+			'def search(self,&nbsp;&nbsp;node:&nbsp;&nbsp;Node&nbsp;&nbsp;|&nbsp;&nbsp;None,&nbsp;&nbsp;key:&nbsp;&nbsp;int) -> Node | None:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;if node is None or node.key == key:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return node',
+			'',
+			'&nbsp;&nbsp;&nbsp;&nbsp;if node.key > key:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return self.search(node=node.left, key=key)',
+			'&nbsp;&nbsp;&nbsp;&nbsp;else:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return self.search(node=node.right, key=key)',
+		],
+	};
+
 	const BST_INIT_SNIPPET = {
 		language: 'python',
 		code: ['if __name__ == "__main__":', '&nbsp;&nbsp;&nbsp;&nbsp;tree: BST = BST(key=20)'],
@@ -294,3 +308,46 @@
 	src={ExampleVisualize}
 	alt="An example diagram showing a binary search tree."
 />
+<Paragraph>
+	Now we need a way to search for a node in the BST. Let's implement a function to <Highlight>
+		search
+	</Highlight>.
+</Paragraph>
+<Paragraph>
+	<Highlight>BST.py</Highlight>
+</Paragraph>
+<Code codeSnippet={BST_CLASS_SEARCH_SNIPPET} />
+<List>
+	<ListItem>
+		<Highlight>Key</Highlight> - The key value to search for.
+	</ListItem>
+	<ListItem>
+		<Highlight>Node</Highlight> - The current node in the tree being searched.
+	</ListItem>
+</List>
+<Paragraph>How it works:</Paragraph>
+<List>
+	<ListItem>
+		Check if the current node is None or if the key of the current node matches the search key.
+	</ListItem>
+	<ListItem>
+		If the key matches, return the current node. Or if the current node is None, return None.
+	</ListItem>
+	<ListItem>
+		If neither of the above conditions are true, recursively call the function for the left and
+		right suntrees of the current node, till a match is found or None is returned.
+	</ListItem>
+</List>
+<Paragraph>
+	Finally, we need to implement a delete function to remove a node from the BST. This process is
+	more complex because it must handle three cases.
+</Paragraph>
+<Paragraph>
+	<Highlight>Case 1:</Highlight> Deleting a node with no children (a leaf node):
+</Paragraph>
+<Paragraph>
+	<Highlight>Case 2:</Highlight> Deleting a node with one child:
+</Paragraph>
+<Paragraph>
+	<Highlight>Case 3:</Highlight> Deleting a node with both children:
+</Paragraph>
