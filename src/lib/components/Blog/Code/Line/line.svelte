@@ -35,9 +35,7 @@
 
 <style>
 	.code-line {
-		padding: 0.25rem 0;
 		font-family: monospace;
-		font-size: var(--fs-default--1);
 	}
 
 	.code-line::marker {

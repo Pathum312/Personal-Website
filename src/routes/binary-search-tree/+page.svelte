@@ -12,6 +12,10 @@
 		ExampleTree,
 		ExampleSubtrees,
 		ExampleVisualize,
+		ExampleRemoveLeafNode,
+		ExampleRemoveNodeWithOneChild,
+		ExampleRemoveNodeWithTwoChildren,
+		ExampleRemoveRootNodeWithTwoChildren,
 	} from '$lib';
 
 	const NODE_CLASS_INIT_SNIPPET = {
@@ -302,12 +306,7 @@
 <Paragraph>
 	Let's use the visualize function to print it, as shown in <Highlight>Figure 3</Highlight>.
 </Paragraph>
-<Image
-	width="1288"
-	height="978"
-	src={ExampleVisualize}
-	alt="An example diagram showing a binary search tree."
-/>
+<Image width="1288" height="978" src={ExampleVisualize} alt="Visualization of the BST." />
 <Paragraph>
 	Now we need a way to search for a node in the BST. Let's implement a function to <Highlight>
 		search
@@ -343,11 +342,39 @@
 	more complex because it must handle three cases.
 </Paragraph>
 <Paragraph>
+	<Highlight>BST.py</Highlight>
+</Paragraph>
+<Code codeSnippet={BST_CLASS_SEARCH_SNIPPET} />
+<Paragraph>
 	<Highlight>Case 1:</Highlight> Deleting a node with no children (a leaf node):
 </Paragraph>
+<Image
+	width="1210"
+	height="494"
+	src={ExampleRemoveLeafNode}
+	alt="Removing a leaf node from a BST."
+/>
 <Paragraph>
 	<Highlight>Case 2:</Highlight> Deleting a node with one child:
 </Paragraph>
+<Image
+	width="1503"
+	height="632"
+	src={ExampleRemoveNodeWithOneChild}
+	alt="Removing a node with one child."
+/>
 <Paragraph>
 	<Highlight>Case 3:</Highlight> Deleting a node with both children:
 </Paragraph>
+<Image
+	width="1828"
+	height="663"
+	src={ExampleRemoveNodeWithTwoChildren}
+	alt="Removing a node with two children."
+/>
+<Image
+	width="1878"
+	height="657"
+	src={ExampleRemoveRootNodeWithTwoChildren}
+	alt="Removing a root node with two children."
+/>

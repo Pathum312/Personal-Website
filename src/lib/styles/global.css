@@ -53,6 +53,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 	color: var(--clr-secondary);
 	font-family: var(--font-default);
 	background-color: var(--clr-primary);
@@ -62,6 +63,5 @@
 /* *,
 *::before,
 *::after {
-	box-sizing: border-box;
 	outline: 2px solid lime;
 } */

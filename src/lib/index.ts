@@ -18,7 +18,16 @@ import {
 } from './components';
 
 // Assets
-import { ProfileIMG, ExampleTree, ExampleSubtrees, ExampleVisualize } from './assets';
+import {
+	ProfileIMG,
+	ExampleTree,
+	ExampleSubtrees,
+	ExampleVisualize,
+	ExampleRemoveLeafNode,
+	ExampleRemoveNodeWithOneChild,
+	ExampleRemoveNodeWithTwoChildren,
+	ExampleRemoveRootNodeWithTwoChildren,
+} from './assets';
 
 type Article = {
 	name: string;
@@ -60,4 +69,8 @@ export {
 	ExampleTree,
 	ExampleSubtrees,
 	ExampleVisualize,
+	ExampleRemoveLeafNode,
+	ExampleRemoveNodeWithOneChild,
+	ExampleRemoveNodeWithTwoChildren,
+	ExampleRemoveRootNodeWithTwoChildren,
 };

@@ -13,23 +13,40 @@
 	let { codeSnippet }: Props = $props();
 </script>
 
-<div class="code">
-	<ol class="code-lines-list">
-		{#each codeSnippet.code as line}
-			<Line code={line} language={codeSnippet.language} />
-		{/each}
-	</ol>
+<div class="code-snippet">
+	<div class="content">
+		<pre><code
+				><ol>{#each codeSnippet.code as line}<Line
+								code={line}
+								language={codeSnippet.language}
+							/>{/each}</ol></code
+			></pre>
+	</div>
 </div>
 
 <style>
-	.code {
-		padding: 1rem;
+	.code-snippet {
+		overflow: auto;
 		margin: 1rem 0;
 		border-radius: 0.25rem;
+		box-sizing: border-box;
 		border: 2px solid var(--clr-hover);
 	}
 
-	.code-lines-list {
-		padding-left: 1.5rem;
+	.code-snippet::-webkit-scrollbar {
+		width: 0rem;
+	}
+
+	pre {
+		padding: 1rem;
+		overflow: auto;
+	}
+
+	code {
+		font-size: var(--fs-default--1);
+	}
+
+	ol {
+		margin-left: 2rem;
 	}
 </style>
