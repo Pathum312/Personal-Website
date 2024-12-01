@@ -51,12 +51,14 @@
 			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node.left = Node(key=key)',
 			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node.left.parent = node',
 			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break',
+			'',
 			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node = node.left',
 			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:',
 			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if node.right is None:',
 			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node.right = Node(key=key)',
 			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node.right.parent = node',
 			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break',
+			'',
 			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node = node.right',
 		],
 	};
@@ -91,6 +93,91 @@
 		],
 	};
 
+	const BST_CLASS_REMOVE_SNIPPET = {
+		language: 'python',
+		code: [
+			'def remove(self,&nbsp;&nbsp;key:&nbsp;&nbsp;int) -> None:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;found_node: Node | None = self.search(node=self.root, key=key)',
+			'',
+			'&nbsp;&nbsp;&nbsp;&nbsp;if found_node is None:',
+			"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f'\\n{key} not found in the tree.')",
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return',
+			'',
+			'&nbsp;&nbsp;&nbsp;&nbsp;if found_node.left and found_node.right:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self._remove_two_children(node=found_node)',
+			'&nbsp;&nbsp;&nbsp;&nbsp;elif found_node.left or found_node.right:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self._remove_one_child(node=found_node)',
+			'&nbsp;&nbsp;&nbsp;&nbsp;else:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self._remove_leaf(node=found_node)',
+		],
+	};
+
+	const BST_CLASS_REMOVE_LEAF_SNIPPET = {
+		language: 'python',
+		code: [
+			'def _remove_leaf(self,&nbsp;&nbsp;node:&nbsp;&nbsp;Node) -> None:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;parent: Node = node.parent',
+			'',
+			'&nbsp;&nbsp;&nbsp;&nbsp;if parent.left == node:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent.left = None',
+			'&nbsp;&nbsp;&nbsp;&nbsp;else:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent.right = None',
+		],
+	};
+
+	const BST_CLASS_REMOVE_ONE_CHILD_SNIPPET = {
+		language: 'python',
+		code: [
+			'def _remove_one_child(self,&nbsp;&nbsp;node:&nbsp;&nbsp;Node) -> None:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;parent: Node = node.parent',
+			'&nbsp;&nbsp;&nbsp;&nbsp;child: Node = node.left if node.left else node.right',
+			'',
+			'&nbsp;&nbsp;&nbsp;&nbsp;if parent:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if parent.left == node:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent.left = child',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent.right = child',
+			'',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child.parent = parent',
+			'&nbsp;&nbsp;&nbsp;&nbsp;else:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.root = child',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.root.parent = None',
+		],
+	};
+
+	const BST_CLASS_REMOVE_TWO_CHILDREN_SNIPPET = {
+		language: 'python',
+		code: [
+			'def _remove_two_children(self,&nbsp;&nbsp;node:&nbsp;&nbsp;Node) -> None:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;parent: Node = node.parent',
+			'&nbsp;&nbsp;&nbsp;&nbsp;successor: Node = self._get_successor(node=node if parent else node.right)',
+			'&nbsp;&nbsp;&nbsp;&nbsp;successor_parent: Node = successor.parent',
+			'',
+			'&nbsp;&nbsp;&nbsp;&nbsp;node.key = successor.key',
+			'',
+			'&nbsp;&nbsp;&nbsp;&nbsp;if successor_parent.left:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;successor_parent.left = successor.right',
+			'&nbsp;&nbsp;&nbsp;&nbsp;else:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;successor_parent.right = successor.right',
+			'',
+			'&nbsp;&nbsp;&nbsp;&nbsp;if successor.right:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;successor.right.parent = successor_parent',
+		],
+	};
+
+	const BST_CLASS_GET_SUCCESSOR_SNIPPET = {
+		language: 'python',
+		code: [
+			'def _get_successor(self,&nbsp;&nbsp;node:&nbsp;&nbsp;Node) -> Node | None:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;current: Node = node',
+			'',
+			'&nbsp;&nbsp;&nbsp;&nbsp;while current.left:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current = current.left',
+			'',
+			'&nbsp;&nbsp;&nbsp;&nbsp;return current',
+		],
+	};
+
 	const BST_INIT_SNIPPET = {
 		language: 'python',
 		code: ['if __name__ == "__main__":', '&nbsp;&nbsp;&nbsp;&nbsp;tree: BST = BST(key=20)'],
@@ -99,30 +186,26 @@
 	const BST_INSERT_SNIPPET = {
 		language: 'python',
 		code: [
-			'if __name__ == "__main__":',
-			'&nbsp;&nbsp;&nbsp;&nbsp;tree: BST = BST(key=20)',
-			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=10)',
-			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=30)',
-			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=9)',
-			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=15)',
-			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=25)',
-			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=35)',
+			'tree.insert(key=10)',
+			'tree.insert(key=30)',
+			'tree.insert(key=9)',
+			'tree.insert(key=15)',
+			'tree.insert(key=25)',
+			'tree.insert(key=35)',
 		],
 	};
 
 	const BST_VISUALIZE_SNIPPET = {
 		language: 'python',
+		code: ['tree.visualize(node=tree.root)'],
+	};
+
+	const BST_SEARCH_SNIPPET = {
+		language: 'python',
 		code: [
-			'if __name__ == "__main__":',
-			'&nbsp;&nbsp;&nbsp;&nbsp;tree: BST = BST(key=20)',
-			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=10)',
-			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=30)',
-			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=9)',
-			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=15)',
-			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=25)',
-			'&nbsp;&nbsp;&nbsp;&nbsp;tree.insert(key=35)',
+			"print('\\nFound 30' if tree.search(node=tree.root, key=30) else '\\n30 not found') # Output: Found 30",
 			'',
-			'&nbsp;&nbsp;&nbsp;&nbsp;tree.visualize(node=tree.root)',
+			"print('\\nFound 28' if tree.search(node=tree.root, key=28) else '\\n28 not found') # Output: 28 not found",
 		],
 	};
 </script>
@@ -179,15 +262,18 @@
 	properties.
 </Paragraph>
 <Title>
-	<Highlight>Code Implementation</Highlight>
+	<Highlight>Node Class</Highlight>
 </Title>
 <Paragraph>
 	First, we need to define the Node class, which will be used to represent each node in the BST.
 </Paragraph>
 <Paragraph>
-	<Highlight>BST.py</Highlight>
+	<Highlight>BST.py - Node Class</Highlight>
 </Paragraph>
 <Code codeSnippet={NODE_CLASS_INIT_SNIPPET} />
+<Paragraph>
+	<Highlight>Attributes:</Highlight>
+</Paragraph>
 <List>
 	<ListItem><Highlight>Key</Highlight> - The key value of the node.</ListItem>
 	<ListItem>
@@ -205,14 +291,20 @@
 		be <Highlight>None</Highlight>.
 	</ListItem>
 </List>
+<Title>
+	<Highlight>BST Class</Highlight>
+</Title>
 <Paragraph>
 	Next, we need to define the <Highlight>BST</Highlight> class, which will be used to represent the entire
 	BST.
 </Paragraph>
 <Paragraph>
-	<Highlight>BST.py</Highlight>
+	<Highlight>BST.py - BST Class</Highlight>
 </Paragraph>
 <Code codeSnippet={BST_CLASS_INIT_SNIPPET} />
+<Paragraph>
+	<Highlight>Attributes:</Highlight>
+</Paragraph>
 <List>
 	<ListItem>
 		<Highlight>Root</Highlight> - The root node of the BST.
@@ -222,36 +314,24 @@
 	<Highlight>BST.py</Highlight>
 </Paragraph>
 <Code codeSnippet={BST_INIT_SNIPPET} />
+<Title>
+	<Highlight>Adding a Node</Highlight>
+</Title>
 <Paragraph>
 	Here, we have initialized a BST with a root node of 20. However, a tree with only a root is not
 	sufficient, so let's implement a function to <Highlight>insert</Highlight> additional nodes.
 </Paragraph>
 <Paragraph>
-	<Highlight>BST.py</Highlight>
+	<Highlight>BST.py - BST Class</Highlight>
 </Paragraph>
 <Code codeSnippet={BST_CLASS_INSERT_SNIPPET} />
+<Paragraph>
+	<Highlight>Attributes:</Highlight>
+</Paragraph>
 <List>
 	<ListItem>
 		<Highlight>Key</Highlight> - The key value of the node to be inserted.
 	</ListItem>
-</List>
-<Paragraph>How it works:</Paragraph>
-<List>
-	<ListItem>Start at the root of the tree.</ListItem>
-	<ListItem>
-		Compare the <Highlight>key</Highlight> to the current node's key.
-	</ListItem>
-	<ListItem>
-		If the <Highlight>key</Highlight> is smaller, move to the left child.
-	</ListItem>
-	<ListItem>
-		If the <Highlight>key</Highlight> is larger or equal, move to the right child.
-	</ListItem>
-	<ListItem>
-		Repeat until a <Highlight>None</Highlight> child is found.
-	</ListItem>
-	<ListItem>Create a new node at that position.</ListItem>
-	<ListItem>Set the new node's parent to the current node.</ListItem>
 </List>
 <Paragraph>
 	Now that we have a function to insert nodes into the BST, let's insert some additional nodes.
@@ -260,16 +340,23 @@
 	<Highlight>BST.py</Highlight>
 </Paragraph>
 <Code codeSnippet={BST_INSERT_SNIPPET} />
+<Title>
+	<Highlight>Printing the BST</Highlight>
+</Title>
 <Paragraph>
 	We have added the nodes <Highlight>10</Highlight>, <Highlight>30</Highlight>, <Highlight
 		>9</Highlight
 	>, <Highlight>15</Highlight>, <Highlight>25</Highlight>, and <Highlight>35</Highlight> to our BST,
-	but visualizing it is challenging. Let’s create a function to print the BST for better clarity.
+	but we need a way to actually confirm that they were added. Let’s create a function to print the BST
+	for better clarity.
 </Paragraph>
 <Paragraph>
-	<Highlight>BST.py</Highlight>
+	<Highlight>BST.py - BST Class</Highlight>
 </Paragraph>
 <Code codeSnippet={BST_CLASS_VISUALIZE_SNIPPET} />
+<Paragraph>
+	<Highlight>Attributes:</Highlight>
+</Paragraph>
 <List>
 	<ListItem>
 		<Highlight>Node</Highlight> - The current node in the tree being visualized. If it's None, the function
@@ -283,39 +370,29 @@
 		<Highlight>Prefix</Highlight> - A string to differentiate the root, left, and right nodes visually.
 	</ListItem>
 </List>
-<Paragraph>How it works:</Paragraph>
-<List>
-	<ListItem>
-		If the current node is not <Highlight>None</Highlight>, it prints the node's key, indented based
-		on its depth level.
-	</ListItem>
-	<ListItem>
-		The function recursively calls itself for the left and right child nodes of the current node.
-	</ListItem>
-	<ListItem>
-		The left child uses a prefix of <Highlight>"L--- "</Highlight> and increases the level by 1.
-	</ListItem>
-	<ListItem>
-		The right child uses a prefix of <Highlight>"R--- "</Highlight> and increases the level by 1.
-	</ListItem>
-</List>
 <Paragraph>
 	<Highlight>BST.py</Highlight>
 </Paragraph>
 <Code codeSnippet={BST_VISUALIZE_SNIPPET} />
 <Paragraph>
-	Let's use the visualize function to print it, as shown in <Highlight>Figure 3</Highlight>.
+	Let's use the visualize function to print it, as shown in <Highlight>Figure 3</Highlight> below:
 </Paragraph>
 <Image width="1288" height="978" src={ExampleVisualize} alt="Visualization of the BST." />
+<Title>
+	<Highlight>Searching for a Node</Highlight>
+</Title>
 <Paragraph>
 	Now we need a way to search for a node in the BST. Let's implement a function to <Highlight>
 		search
 	</Highlight>.
 </Paragraph>
 <Paragraph>
-	<Highlight>BST.py</Highlight>
+	<Highlight>BST.py - BST Class</Highlight>
 </Paragraph>
 <Code codeSnippet={BST_CLASS_SEARCH_SNIPPET} />
+<Paragraph>
+	<Highlight>Attributes:</Highlight>
+</Paragraph>
 <List>
 	<ListItem>
 		<Highlight>Key</Highlight> - The key value to search for.
@@ -324,27 +401,34 @@
 		<Highlight>Node</Highlight> - The current node in the tree being searched.
 	</ListItem>
 </List>
-<Paragraph>How it works:</Paragraph>
-<List>
-	<ListItem>
-		Check if the current node is None or if the key of the current node matches the search key.
-	</ListItem>
-	<ListItem>
-		If the key matches, return the current node. Or if the current node is None, return None.
-	</ListItem>
-	<ListItem>
-		If neither of the above conditions are true, recursively call the function for the left and
-		right suntrees of the current node, till a match is found or None is returned.
-	</ListItem>
-</List>
 <Paragraph>
-	Finally, we need to implement a delete function to remove a node from the BST. This process is
-	more complex because it must handle three cases.
+	Lets use the <Highlight>search</Highlight> functrion to search for a node with a key of <Highlight
+		>30</Highlight
+	> and <Highlight>28</Highlight>.
 </Paragraph>
 <Paragraph>
 	<Highlight>BST.py</Highlight>
 </Paragraph>
-<Code codeSnippet={BST_CLASS_SEARCH_SNIPPET} />
+<Code codeSnippet={BST_SEARCH_SNIPPET} />
+<Title>
+	<Highlight>Removing a Node</Highlight>
+</Title>
+<Paragraph>
+	Finally, we have to implement a <Highlight>remove</Highlight> function to remove a node from the BST.
+	But there are <Highlight>three cases</Highlight> to consider when deleting a node.
+</Paragraph>
+<Paragraph>
+	<Highlight>BST.py - BST Class</Highlight>
+</Paragraph>
+<Code codeSnippet={BST_CLASS_REMOVE_SNIPPET} />
+<Paragraph>
+	<Highlight>Attributes:</Highlight>
+</Paragraph>
+<List>
+	<ListItem>
+		<Highlight>Key</Highlight> - The key value of the node to be removed.
+	</ListItem>
+</List>
 <Paragraph>
 	<Highlight>Case 1:</Highlight> Deleting a node with no children (a leaf node):
 </Paragraph>
@@ -355,6 +439,18 @@
 	alt="Removing a leaf node from a BST."
 />
 <Paragraph>
+	<Highlight>BST.py - BST Class</Highlight>
+</Paragraph>
+<Code codeSnippet={BST_CLASS_REMOVE_LEAF_SNIPPET} />
+<Paragraph>
+	<Highlight>Attributes:</Highlight>
+</Paragraph>
+<List>
+	<ListItem>
+		<Highlight>Node</Highlight> - The node to be removed.
+	</ListItem>
+</List>
+<Paragraph>
 	<Highlight>Case 2:</Highlight> Deleting a node with one child:
 </Paragraph>
 <Image
@@ -363,6 +459,18 @@
 	src={ExampleRemoveNodeWithOneChild}
 	alt="Removing a node with one child."
 />
+<Paragraph>
+	<Highlight>BST.py - BST Class</Highlight>
+</Paragraph>
+<Code codeSnippet={BST_CLASS_REMOVE_ONE_CHILD_SNIPPET} />
+<Paragraph>
+	<Highlight>Attributes:</Highlight>
+</Paragraph>
+<List>
+	<ListItem>
+		<Highlight>Node</Highlight> - The node to be removed.
+	</ListItem>
+</List>
 <Paragraph>
 	<Highlight>Case 3:</Highlight> Deleting a node with both children:
 </Paragraph>
@@ -378,3 +486,31 @@
 	src={ExampleRemoveRootNodeWithTwoChildren}
 	alt="Removing a root node with two children."
 />
+<Paragraph>
+	<Highlight>BST.py - BST Class</Highlight>
+</Paragraph>
+<Code codeSnippet={BST_CLASS_REMOVE_TWO_CHILDREN_SNIPPET} />
+<Paragraph>
+	<Highlight>Attributes:</Highlight>
+</Paragraph>
+<List>
+	<ListItem>
+		<Highlight>Node</Highlight> - The node to be removed.
+	</ListItem>
+</List>
+<Paragraph>
+	<Highlight>BST.py - BST Class</Highlight>
+</Paragraph>
+<Code codeSnippet={BST_CLASS_GET_SUCCESSOR_SNIPPET} />
+<Paragraph>
+	<Highlight>Attributes:</Highlight>
+</Paragraph>
+<List>
+	<ListItem>
+		<Highlight>Node</Highlight> - The node to get the successor of.
+	</ListItem>
+</List>
+<Paragraph>
+	Now that the <Highlight>remove</Highlight> function is implemented, we can remove a node from the tree.
+	To start with, let's remove node 25 from the BST.
+</Paragraph>
