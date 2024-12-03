@@ -12,6 +12,8 @@
 
 	let { tag }: Props = $props();
 
+	let monthName: string = $state(''); // Used to store current month, while filtering articles by tag
+
 	/**
 	 * Navigates to the article
 	 *
@@ -27,11 +29,28 @@
 	 * @returns The filtered articles
 	 */
 	const filterArticlesByTag = (): Blog => {
-		return DB.filter((blog: Year) =>
-			blog.months.some((month: Month) =>
-				month.articles.some((article: Article) => article.tag === tag),
-			),
-		);
+		const filteredArticles: Article[] = [];
+		const filteredBlogs: Blog = [];
+		let blogs: Year = {
+			year: '',
+			months: [],
+		};
+
+		DB.forEach((blog: Year) => {
+			blogs['year'] = blog.year;
+			blog.months.forEach((month: Month) => {
+				month.articles.forEach((article: Article) => {
+					if (article.tag === tag) {
+						monthName = month.name;
+						filteredArticles.push(article);
+					}
+				});
+				blogs['months'] = [{ name: monthName, articles: filteredArticles }];
+			});
+			filteredBlogs.push(blogs);
+		});
+
+		return filteredBlogs;
 	};
 
 	const blogs: Blog = tag ? filterArticlesByTag() : DB;

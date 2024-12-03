@@ -13,10 +13,14 @@
 		ExampleSubtrees,
 		ExampleVisualize,
 		ExampleRemoveLeafNode,
+		ExampleRemoveLeafNodeOutput,
 		ExampleRemoveNodeWithOneChild,
 		ExampleRemoveNodeWithTwoChildren,
+		ExampleRemoveNodeWithOneChildOutput,
 		ExampleRemoveRootNodeWithTwoChildren,
+		ExampleRemoveNodeWithTwoChildrenOutput,
 	} from '$lib';
+	import Link from '$lib/components/Blog/Link/link.svelte';
 
 	const NODE_CLASS_INIT_SNIPPET = {
 		language: 'python',
@@ -155,9 +159,9 @@
 			'',
 			'&nbsp;&nbsp;&nbsp;&nbsp;node.key = successor.key',
 			'',
-			'&nbsp;&nbsp;&nbsp;&nbsp;if successor_parent.left:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;successor_parent.left == successor',
 			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;successor_parent.left = successor.right',
-			'&nbsp;&nbsp;&nbsp;&nbsp;else:',
+			'&nbsp;&nbsp;&nbsp;&nbsp;elif successor_parent.right == successor:',
 			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;successor_parent.right = successor.right',
 			'',
 			'&nbsp;&nbsp;&nbsp;&nbsp;if successor.right:',
@@ -207,6 +211,21 @@
 			'',
 			"print('\\nFound 28' if tree.search(node=tree.root, key=28) else '\\n28 not found') # Output: 28 not found",
 		],
+	};
+
+	const BST_REMOVE_LEAF_SNIPPET = {
+		language: 'python',
+		code: ['tree.remove(key=25)', '', "print('\\nRemove 25')", 'tree.visualize(node=tree.root)'],
+	};
+
+	const BST_REMOVE_ONE_CHILD_SNIPPET = {
+		language: 'python',
+		code: ['tree.remove(key=30)', '', "print('\\nRemove 30')", 'tree.visualize(node=tree.root)'],
+	};
+
+	const BST_REMOVE_TWO_CHILDREN_SNIPPET = {
+		language: 'python',
+		code: ['tree.remove(key=20)', '', "print('\\nRemove 20')", 'tree.visualize(node=tree.root)'],
 	};
 </script>
 
@@ -512,5 +531,61 @@
 </List>
 <Paragraph>
 	Now that the <Highlight>remove</Highlight> function is implemented, we can remove a node from the tree.
-	To start with, let's remove node 25 from the BST.
+	To start with, let's remove the <Highlight>leaf node 25</Highlight> from the BST created in the earlier
+	sections.
 </Paragraph>
+<Paragraph>
+	<Highlight>BST.py</Highlight>
+</Paragraph>
+<Code codeSnippet={BST_REMOVE_LEAF_SNIPPET} />
+<Image width="885" height="1005" src={ExampleRemoveLeafNodeOutput} alt="Removed a leaf node" />
+<Paragraph>
+	Next, let's remove the <Highlight>node 30</Highlight>, which has <Highlight>one child</Highlight> from
+	the BST.
+</Paragraph>
+<Paragraph>
+	<Highlight>BST.py</Highlight>
+</Paragraph>
+<Code codeSnippet={BST_REMOVE_ONE_CHILD_SNIPPET} />
+<Image
+	width="1232"
+	height="954"
+	src={ExampleRemoveNodeWithOneChildOutput}
+	alt="Removed a node with one child"
+/>
+<Paragraph>
+	Finally, let's remove the <Highlight>node 20</Highlight>, which has <Highlight
+		>two children</Highlight
+	>
+</Paragraph>
+<Paragraph>
+	<Highlight>BST.py</Highlight>
+</Paragraph>
+<Code codeSnippet={BST_REMOVE_TWO_CHILDREN_SNIPPET} />
+<Image
+	width="1358"
+	height="837"
+	src={ExampleRemoveNodeWithTwoChildrenOutput}
+	alt="Removed a node with two children"
+/>
+<Title>
+	<Highlight>Resources</Highlight>
+</Title>
+<List>
+	<ListItem>
+		GitHub: <Link
+			href="https://github.com/Pathum312/Algorithm-Logic/blob/development/BST/bst.py"
+			content="bst.py"
+		/>
+	</ListItem>
+	<ListItem>
+		Reading Material: <Link
+			href="https://www.geeksforgeeks.org/binary-search-tree/"
+			content="Binary Search Tree - GeeksforGeeks"
+		/>
+	</ListItem>
+</List>
+<Title alignment="center">
+	<Highlight>Related Articles</Highlight>
+</Title>
+<Blog tag="DataStructures" />

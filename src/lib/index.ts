@@ -24,9 +24,12 @@ import {
 	ExampleSubtrees,
 	ExampleVisualize,
 	ExampleRemoveLeafNode,
+	ExampleRemoveLeafNodeOutput,
 	ExampleRemoveNodeWithOneChild,
 	ExampleRemoveNodeWithTwoChildren,
+	ExampleRemoveNodeWithOneChildOutput,
 	ExampleRemoveRootNodeWithTwoChildren,
+	ExampleRemoveNodeWithTwoChildrenOutput,
 } from './assets';
 
 type Article = {
@@ -70,7 +73,10 @@ export {
 	ExampleSubtrees,
 	ExampleVisualize,
 	ExampleRemoveLeafNode,
+	ExampleRemoveLeafNodeOutput,
 	ExampleRemoveNodeWithOneChild,
 	ExampleRemoveNodeWithTwoChildren,
+	ExampleRemoveNodeWithOneChildOutput,
 	ExampleRemoveRootNodeWithTwoChildren,
+	ExampleRemoveNodeWithTwoChildrenOutput,
 };
